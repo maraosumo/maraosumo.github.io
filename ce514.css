@@ -1,0 +1,21 @@
+/* Basic CSS Template */
+
+/* General styles */
+body {
+    font-family: Calibri;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Links */
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
