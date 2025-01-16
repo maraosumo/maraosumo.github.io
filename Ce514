@@ -1,1 +1,81 @@
+<html>
+<body>
+<h1>
+Mara
+</h1>
+<h2>
+arghhhhhhhhhhh
+</h2>
+<h3>
+subtitle
+</h3>
+<hr>
+<p>
+hello its <i>me</i> me. ive been <a href="https://www.merriam-webster.com/dictionary/wonder" target="_blank">
+wondering
+</a>
+<b>
+sup
+</b>if
+after all these years you'd like to meet.
+<br> To go over...<a href="https://www.merriam-webster.com/dictionary/everything" target="_blank">everything</a>.
+<a href="https://www.adele.com/" target="_blank">
+<h2>
+Adele
+</h2></a>
+</p>
+<hr>
+<h3>
+Classes I'm taking this semester
+</h3><ul>
+<li>ce 541</li>
+<li>ce 361</li>
+<li>ce 351</li>
+<li>rel 200</li>
+<li>ahtg 100</li>
+</ul>
 
+<h3>
+3 Most Recent Movies Seen
+</h3>
+<ol>
+<li>Moana 2</li>
+<li>Sonic 3</li>
+<li>Wicked</li>
+</ol>
+
+<table border="2">
+<tr>
+  <td>
+    Title
+  </td>
+  <td>
+    Author
+  </td>
+  <td>
+    Genre
+  </td>
+  <td>
+    Date Read
+  </td>
+</tr>
+<tr>
+  <td>
+    The 5 People You Meet In Heaven
+  </td>
+  <td>
+    Mitch Albom
+  </td>
+  <td>
+    Fiction
+  </td>
+  <td>
+    Last Semester
+  </td>
+</tr>
+</table>
+
+<img src="https://media.cntraveler.com/photos/5cdc6ee7a6a5c4323b2f0b02/master/pass/Changi-Jewel_Lester-Ledesma__1220574.jpg">
+
+</body>
+</html>
