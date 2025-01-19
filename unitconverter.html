@@ -40,7 +40,7 @@
     const iUnit = document.getElementById("iunits").value;
     const oUnit = document.getElementById("ounits").value;
 
-    const result = inputValue * conversionFactors[iUnit][oUnit];
+    const result = input * conversionFactors[iUnit][oUnit];
     document.getElementById("result").innerText = `${input} ${iUnit} is equal to ${result} ${oUnit}`;
   }
   
