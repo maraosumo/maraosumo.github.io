@@ -27,7 +27,7 @@ body {
 }
  .images img {
     margin: 10px;
-    border: 4px solid #fdd835; /* Yellow border for images */
+    border: 4px solid green; /* Yellow border for images */
     border-radius: 8px; /* Optional: rounded corners */
     width: auto;
   }
