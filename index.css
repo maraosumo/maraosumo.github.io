@@ -1,0 +1,49 @@
+ body {
+      font-family: Arial, sans-serif;
+      background-color: #fffbe7; /* Light yellow background */
+      color: #333; /* Contrast text */
+      margin: 20px;
+    }
+    h1 {
+      color: #f9a825; /* Bright yellow */
+      text-align: center;
+      font-size: 2.5rem;
+    }
+    h2, h3 {
+      color: #ffa000; /* Slightly darker yellow */
+    }
+    a {
+      color: #fbc02d; /* Yellow for links */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      text-align: center;
+    }
+    .images img {
+      margin: 10px;
+      border: 2px solid #fdd835; /* Yellow border for images */
+      border-radius: 8px;
+    }
+    .links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .brands {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .box {
+      padding: 10px;
+      background-color: #fff59d; /* Softer yellow box */
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
