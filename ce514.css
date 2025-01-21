@@ -5,6 +5,12 @@ h1 {
     font-family: Verdana, Calibri;
     background-color: #f4f4f4;
     color: #333;
+}
+h2 {
+     font-family: Verdana, Calibri;
+    background-color: #f4f4f4;
+    color: #333;
+}
 body {
     font-family: Calibri;
     margin: 0;
