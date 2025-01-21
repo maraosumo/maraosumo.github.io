@@ -29,6 +29,7 @@ body {
 /* Links */
 a {
     color: green;
+    display: inline-block;
     text-decoration: none;
 }
 
