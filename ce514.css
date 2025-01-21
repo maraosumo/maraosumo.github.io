@@ -1,12 +1,17 @@
 /* Basic CSS Template */
 
 /* General styles */
+title {
+     font-family: Verdana, Calibri;
+    background-color: #f4f4f4;
+    color: #333;
+}
 h1 {
     font-family: Verdana, Calibri;
     background-color: #f4f4f4;
     color: #333;
 }
-h2 {
+h2,h3 {
      font-family: Verdana, Calibri;
     background-color: #f4f4f4;
     color: #333;
