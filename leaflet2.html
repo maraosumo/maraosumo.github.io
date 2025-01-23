@@ -58,18 +58,22 @@ h1 {
 				var endMarker = L.marker(endLatLng).addTo(map).bindPopup("End Point").openPopup();
 
         document.getElementById('submit-button').addEventListener('click', function() {
-            var lat = parseFloat(document.getElementById('latitude').value);
-            var lng = parseFloat(document.getElementById('longitude').value);
+            var slat = parseFloat(document.getElementById('slatitude').value);
+            var slong = parseFloat(document.getElementById('slongitude').value);
+	    var elat = parseFloat(document.getElementById('elatitude').value);
+            var elong = parseFloat(document.getElementById('elongitude').value);
 
-            if (!isNaN(lat) && !isNaN(lng)) {
-                var marker = L.marker([lat, lng], {
-                  icon: createTriangleIcon()
-                }).addTo(map);
-                marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
-            } else {
-                alert('Please enter valid coordinates.');
-            }
+	var marker = L.marker([slat, slong], {
+	icon: createTriangleIcon()
+	}).addTo(map);
+	marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
+
+	var marker = L.marker([elat, elong], {
+	icon: createTriangleIcon()
+	}).addTo(map);
+	marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
         });
+	    
         </script>
 </body>
 </html>
