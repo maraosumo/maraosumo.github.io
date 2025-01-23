@@ -11,6 +11,10 @@ h1 {
     font-family: Verdana, Calibri;
     background-color: #f4f4f4;
     color: #333;
+    background-color: #4caf50; /* Green background */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Ensures the background adjusts to the text width */
 }
 h2,h3,h4 {
      font-family: Verdana, Calibri;
