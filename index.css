@@ -1,49 +1,42 @@
- body {
-      font-family: Arial, sans-serif;
-      background-color: #fffbe7; /* Light yellow background */
-      color: #333; /* Contrast text */
-      margin: 20px;
-    }
-    h1 {
-      color: #f9a825; /* Bright yellow */
-      text-align: center;
-      font-size: 2.5rem;
-    }
-    h2, h3 {
-      color: #ffa000; /* Slightly darker yellow */
-    }
-    a {
-      color: #fbc02d; /* Yellow for links */
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .content {
-      text-align: center;
-    }
-    .images img {
-      margin: 10px;
-      border: 2px solid #fdd835; /* Yellow border for images */
-      border-radius: 8px;
-    }
-    .links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-    .brands {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-    .box {
-      padding: 10px;
-      background-color: #fff59d; /* Softer yellow box */
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
-    }
+/* Center everything on the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    background-color: #f5fff5; /* Light green background */
+    font-family: Arial, sans-serif;
+}
+
+/* Centered container with border and green accents */
+.container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #4caf50; /* Green border */
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Headers with green hints */
+h1, h2, h3 {
+    color: #4caf50; /* Green text color */
+}
+
+/* Button with green style */
+button {
+    background-color: #4caf50; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049; /* Slightly darker green */
+}
