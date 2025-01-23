@@ -2,18 +2,12 @@
 <html>
 <head>
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+     <style>
+        #map {
+            height: 500px;
+        }
+    </style>
 </head>
-
-<style>
-h1 {
-    font-family: Verdana, Calibri;
-    background-color: #f4f4f4;
-    color: #333;
-    background-color: #4caf50; /* Green background */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners */
-    display: inline-block; /* Ensures the background adjusts to the text width */
-</style>
 
 <h1> Leaflet Map </h1>
     <div id="map"></div>
@@ -56,10 +50,10 @@ h1 {
         var startMarker = L.marker(startLatLng).addTo(map).bindPopup("Start Point").openPopup();
 				var endMarker = L.marker(endLatLng).addTo(map).bindPopup("End Point").openPopup();
 
-        document.getElementById('submit-button').addEventListener('click', function() {
+        document.getElementById('gcdistance').addEventListener('click', function() {
             var slat = parseFloat(document.getElementById('slatitude').value);
             var slong = parseFloat(document.getElementById('slongitude').value);
-	    var elat = parseFloat(document.getElementById('elatitude').value);
+	   				var elat = parseFloat(document.getElementById('elatitude').value);
             var elong = parseFloat(document.getElementById('elongitude').value);
 
 	var marker = L.marker([slat, slong], {
