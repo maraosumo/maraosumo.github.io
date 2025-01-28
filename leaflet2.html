@@ -62,7 +62,7 @@
         	fillOpacity: 0.25,
         	radius: 50 // 10 km in meters
 	}).addTo(map);
-	marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
+	marker.bindPopup("Marker at [" + slat + ", " + slong + "]");
 
 	var marker = L.circle([elat, elong], {
 		color: 'blue',
@@ -70,7 +70,7 @@
         	fillOpacity: 0.25,
         	radius: 50 // 10 km in meters
 	}).addTo(map);
-	marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
+	marker.bindPopup("Marker at [" + elat + ", " + elong + "]");
         });
 	    
         </script>
