@@ -34,15 +34,14 @@
 
     <script>
       // Initialize the map and set its view
-      var map = L.map("map").setView([1.417, 103.831], 15) // yishun view
+      var map = L.map("map").setView([1.417, 103.831], 13) // yishun view
 
       // Add a tile layer (e.g., OpenStreetMap)
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map)
-      
-      // Location 1: add circle in 808 (Childhood Home) and a polygon
+      // add circle in 808 (Childhood Home) and a polygon
       var circle = L.circle([1.4168265075156221, 103.83091409521965], {
         color: "red",
         fillColor: "#f03",
@@ -64,7 +63,7 @@
     }).addTo(map);
     // end
 
-   // Location 2: add circle in YSS and a polygon
+   // add circle in YSS and a polygon
       var circle = L.circle([1.4281, 103.8288], {
         color: "red",
         fillColor: "#f03",
@@ -86,7 +85,7 @@
     }).addTo(map);
       // End
       
-      // Location 3: add circle in church and a polygon
+      // add circle in church and a polygon
       var circle = L.circle([1.3149675340501847, 103.83673087931395], {
         color: "red",
         fillColor: "#f03",
@@ -108,7 +107,7 @@
     }).addTo(map);
       // End
       
-        // Location 4: add circle in Springleaf and a polygon
+        // add circle in Springleaf and a polygon
       var circle = L.circle([1.3970409407722897, 103.81883921073315], {
         color: "red",
         fillColor: "#f03",
@@ -129,7 +128,29 @@
       fill: false,   // Fill color
     }).addTo(map);
       // End
-   
+      
+     // Clickable Circle
+    	 // Define the circle's center and radius
+    const circleCenter = [1.3521, 103.8198]; // Singapore
+    const radius = 200000; // Radius in meters (200 km)
+
+   		 // Create the circle
+    const circle1 = L.circle(circleCenter, {
+      color: 'red',        // Outline color
+      fill: false,
+      weight: 20, 
+      radius: radius,       // Radius in meters
+    }).addTo(map);
+
+      // Add a click event listener to the circle
+    circle1.on('click', () => {
+      // Zoom to the circle's center with a specific zoom level
+      map.setView(circleCenter, 10); // 10 is the zoom level
+
+      // Optional: Add a popup to the circle
+      circle1.bindPopup("Welcome to Singapore!").openPopup();
+    });
+    
      // Adding the markers for the GC Distance
       let smarker, emarker, route
       document
@@ -159,7 +180,7 @@
             color: "blue",
             fillColor: "#bffffc",
             fillOpacity: 0.25,
-            radius: 150, 
+            radius: 50, // 10 km in meters
           }).addTo(map)
           smarker.bindPopup("Marker at [" + slat + ", " + slong + "]")
 
@@ -167,7 +188,7 @@
             color: "blue",
             fillColor: "#bffffc",
             fillOpacity: 0.25,
-            radius: 150, 
+            radius: 50, // 10 km in meters
           }).addTo(map)
           emarker.bindPopup("Marker at [" + elat + ", " + elong + "]")
 
