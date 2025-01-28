@@ -53,17 +53,16 @@
       // Add points in map
       // var startMarker = L.marker(startLatLng).addTo(map).bindPopup("Start Point").openPopup();
       // var endMarker = L.marker(endLatLng).addTo(map).bindPopup("End Point").openPopup();
-			let smarker, emarker, route;
+      let smarker, emarker, route
       document
         .getElementById("gcdistance")
         .addEventListener("click", function () {
-          
           var slat = parseFloat(document.getElementById("slatitude").value)
           var slong = parseFloat(document.getElementById("slongitude").value)
           var elat = parseFloat(document.getElementById("elatitude").value)
           var elong = parseFloat(document.getElementById("elongitude").value)
 
-					if (smarker) {
+          if (smarker) {
             map.removeLayer(smarker)
             smarker = null
           }
@@ -100,14 +99,6 @@
           ])
           map.fitBounds(bounds)
 
-          // Draw a polyline between the two points
-          route = L.polyline(
-            [
-              [slat, slong],
-              [elat, elong],
-            ],
-            { color: "blue" },
-          ).addTo(map)
 
           function compute_distance(lat1, lng1, lat2, lng2) {
             const R = 6371 // Earth's radius in km
@@ -124,9 +115,44 @@
             const distance = R * c
             document.getElementById("results").innerHTML =
               "Distance = " + distance + " km"
+            return c
           }
 
-          compute_distance(slat, slong, elat, elong)
+          angular_distance = compute_distance(slat, slong, elat, elong)
+
+          function great_circle(lat1, lng1, lat2, lng2) {
+            num_segments = 100
+            const points = []
+
+            radLat1 = (lat1 * Math.PI) / 180
+            radLng1 = (lng1 * Math.PI) / 180
+            radLat2 = (lat2 * Math.PI) / 180
+            radLng2 = (lng2 * Math.PI) / 180
+
+            for (let i = 0; i <= num_segments; i++) {
+              const f = i / num_segments
+
+              const A =
+                Math.sin((1 - f) * angular_distance) /
+                Math.sin(angular_distance)
+              const B =
+                Math.sin(f * angular_distance) / Math.sin(angular_distance)
+              const x =
+                A * Math.cos(radLat1) * Math.cos(radLng1) +
+                B * Math.cos(radLat2) * Math.cos(radLng2)
+              const y =
+                A * Math.cos(radLat1) * Math.sin(radLng1) +
+                B * Math.cos(radLat2) * Math.sin(radLng2)
+              const z = A * Math.sin(radLat1) + B * Math.sin(radLat2)
+              const newLat = Math.atan2(z, Math.sqrt(x ** 2 + y ** 2))
+              const newLng = Math.atan2(y, x)
+              
+              points.push([newLat * 180 / Math.PI, newLng * 180 / Math.PI]);
+            }
+            route = L.polyline(points, { color: 'blue' }).addTo(map);
+          }
+          
+          great_circle(slat, slong, elat, elong)
         })
     </script>
   </body>
