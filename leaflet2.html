@@ -53,16 +53,22 @@
         document.getElementById('gcdistance').addEventListener('click', function() {
             var slat = parseFloat(document.getElementById('slatitude').value);
             var slong = parseFloat(document.getElementById('slongitude').value);
-	   				var elat = parseFloat(document.getElementById('elatitude').value);
+	    var elat = parseFloat(document.getElementById('elatitude').value);
             var elong = parseFloat(document.getElementById('elongitude').value);
 
-	var marker = L.marker([slat, slong], {
-	icon: createTriangleIcon()
+	var marker = L.circle([slat, slong], {
+		color: 'blue',
+        	fillColor: '#bffffc',
+        	fillOpacity: 0.25,
+        	radius: 50 // 10 km in meters
 	}).addTo(map);
 	marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
 
-	var marker = L.marker([elat, elong], {
-	icon: createTriangleIcon()
+	var marker = L.circle([elat, elong], {
+		color: 'blue',
+        	fillColor: '#bffffc',
+        	fillOpacity: 0.25,
+        	radius: 50 // 10 km in meters
 	}).addTo(map);
 	marker.bindPopup("Marker at [" + lat + ", " + lng + "]");
         });
