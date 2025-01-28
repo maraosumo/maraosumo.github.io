@@ -1,78 +1,133 @@
-
 <html>
-<head>
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-     <style>
-        #map {
-            height: 500px;
-        }
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      #map {
+        height: 500px;
+      }
     </style>
-</head>
+  </head>
 
-<h1> Leaflet Map </h1>
-    <div id="map"></div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <h1>Leaflet Map</h1>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<body>
-
-<div>
-<label for="latitude">Starting Latitude:</label>
-<input type="number" id="slatitude" name="slatitude">
-<label for="longitude">Starting Longitude:</label>
-<input type="number" id="slongitude" name="slongitude">
-<br>
-<label for="latitude">Ending Latitude:</label>
-<input type="number" id="elatitude" name="elatitude">
-<label for="longitude">Ending Longitude:</label>
-<input type="number" id="elongitude" name="elongitude">
-<br>
-<button id="gcdistance">Find Great Circle Distance!</button>
-</div>
+  <body>
+    <div>
+      <label for="latitude">Starting Latitude:</label>
+      <input type="number" id="slatitude" name="slatitude" />
+      <label for="longitude">Starting Longitude:</label>
+      <input type="number" id="slongitude" name="slongitude" />
+      <br />
+      <label for="latitude">Ending Latitude:</label>
+      <input type="number" id="elatitude" name="elatitude" />
+      <label for="longitude">Ending Longitude:</label>
+      <input type="number" id="elongitude" name="elongitude" />
+      <br />
+      <button id="gcdistance">Find Great Circle Distance!</button>
+      <br />
+      <p id="results"></p>
+    </div>
 
     <script>
-        // Initialize the map and set its view
-        var map = L.map('map').setView([1.417, 103.831], 15); // yishun view
+      // Initialize the map and set its view
+      var map = L.map("map").setView([1.417, 103.831], 15) // yishun view
 
-        // Add a tile layer (e.g., OpenStreetMap)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        // add circle in 808
-     		var circle = L.circle([1.4168265075156221, 103.83091409521965], {
-            color: 'red',
-            fillColor: '#f03',
+      // Add a tile layer (e.g., OpenStreetMap)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map)
+      // add circle in 808
+      var circle = L.circle([1.4168265075156221, 103.83091409521965], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.25,
+        radius: 50, // 10 km in meters
+      }).addTo(map)
+      circle.bindPopup("Childhood home")
+
+      // Add points in map
+      // var startMarker = L.marker(startLatLng).addTo(map).bindPopup("Start Point").openPopup();
+      // var endMarker = L.marker(endLatLng).addTo(map).bindPopup("End Point").openPopup();
+			let smarker, emarker, route;
+      document
+        .getElementById("gcdistance")
+        .addEventListener("click", function () {
+          
+          var slat = parseFloat(document.getElementById("slatitude").value)
+          var slong = parseFloat(document.getElementById("slongitude").value)
+          var elat = parseFloat(document.getElementById("elatitude").value)
+          var elong = parseFloat(document.getElementById("elongitude").value)
+
+					if (smarker) {
+            map.removeLayer(smarker)
+            smarker = null
+          }
+
+          if (emarker) {
+            map.removeLayer(emarker)
+            emarker = null
+          }
+
+          if (route) {
+            map.removeLayer(route)
+            route = null
+          }
+
+          smarker = L.circle([slat, slong], {
+            color: "blue",
+            fillColor: "#bffffc",
             fillOpacity: 0.25,
-            radius: 50 // 10 km in meters
-        }).addTo(map);
-        circle.bindPopup("Childhood home");
-        
-        // Add points in map
-       // var startMarker = L.marker(startLatLng).addTo(map).bindPopup("Start Point").openPopup();
-				// var endMarker = L.marker(endLatLng).addTo(map).bindPopup("End Point").openPopup();
+            radius: 50, // 10 km in meters
+          }).addTo(map)
+          smarker.bindPopup("Marker at [" + slat + ", " + slong + "]")
 
-        document.getElementById('gcdistance').addEventListener('click', function() {
-            var slat = parseFloat(document.getElementById('slatitude').value);
-            var slong = parseFloat(document.getElementById('slongitude').value);
-	    var elat = parseFloat(document.getElementById('elatitude').value);
-            var elong = parseFloat(document.getElementById('elongitude').value);
+          emarker = L.circle([elat, elong], {
+            color: "blue",
+            fillColor: "#bffffc",
+            fillOpacity: 0.25,
+            radius: 50, // 10 km in meters
+          }).addTo(map)
+          emarker.bindPopup("Marker at [" + elat + ", " + elong + "]")
 
-	var marker = L.circle([slat, slong], {
-		color: 'blue',
-        	fillColor: '#bffffc',
-        	fillOpacity: 0.25,
-        	radius: 50 // 10 km in meters
-	}).addTo(map);
-	marker.bindPopup("Marker at [" + slat + ", " + slong + "]");
+          const bounds = L.latLngBounds([
+            [slat, slong],
+            [elat, elong],
+          ])
+          map.fitBounds(bounds)
 
-	var marker = L.circle([elat, elong], {
-		color: 'blue',
-        	fillColor: '#bffffc',
-        	fillOpacity: 0.25,
-        	radius: 50 // 10 km in meters
-	}).addTo(map);
-	marker.bindPopup("Marker at [" + elat + ", " + elong + "]");
-        });
-	    
-        </script>
-</body>
+          // Draw a polyline between the two points
+          route = L.polyline(
+            [
+              [slat, slong],
+              [elat, elong],
+            ],
+            { color: "blue" },
+          ).addTo(map)
+
+          function compute_distance(lat1, lng1, lat2, lng2) {
+            const R = 6371 // Earth's radius in km
+            const radLat1 = (lat1 * Math.PI) / 180
+            const radLng1 = (lng1 * Math.PI) / 180
+            const radLat2 = (lat2 * Math.PI) / 180
+            const radLng2 = (lng2 * Math.PI) / 180
+            const dLat = radLat2 - radLat1
+            const dLon = radLng2 - radLng1
+            const a =
+              Math.sin(dLat / 2) ** 2 +
+              Math.cos(radLat1) * Math.cos(radLat2) * Math.sin(dLon / 2) ** 2
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+            const distance = R * c
+            document.getElementById("results").innerHTML =
+              "Distance = " + distance + " km"
+          }
+
+          compute_distance(slat, slong, elat, elong)
+        })
+    </script>
+  </body>
 </html>
