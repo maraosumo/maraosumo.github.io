@@ -107,14 +107,31 @@
       radius: radius,       // Radius in meters
     }).addTo(map);
 
-      // Add a click event listener to the circle
-    circle1.on('click', () => {
-      // Zoom to the circle's center with a specific zoom level
-      map.setView(circleCenter, 10); // 10 is the zoom level
+    //   // Add a click event listener to the circle
+    // circle1.on('click', () => {
+    //   // Zoom to the circle's center with a specific zoom level
+    //   map.setView(circleCenter, 10); // 10 is the zoom level
 
-      // Optional: Add a popup to the circle
-      circle1.bindPopup("Welcome to Singapore!").openPopup();
+        const customPopup = `
+      <div class="custom-popup">
+        <h3>Welcome to Singapore!</h3>
+        <p>Explore the vibrant city-state known for its stunning Marina Bay Sands, Gardens by the Bay, and incredible cuisine.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/MBS_Singapore.jpg" alt="Singapore">
+        <button onclick="alert('Enjoy Singapore!')">Click Me!</button>
+      </div>
+    `;
+
+    // Bind the custom popup
+    circle.bindPopup(customPopup);
+
+    // Add a click event to zoom to the circle
+    circle1.on('click', () => {
+      map.setView(circleCenter, 15); // Zoom to the circle's center with zoom level 14
     });
+
+    //   // Optional: Add a popup to the circle
+    //   circle1.bindPopup("Welcome to Singapore!").openPopup();
+    // });
     
      // Adding the markers for the GC Distance
       let smarker, emarker, route
