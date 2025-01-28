@@ -41,18 +41,96 @@
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map)
-      // add circle in 808
+      
+      // Location 1: add circle in 808 (Childhood Home) and a polygon
       var circle = L.circle([1.4168265075156221, 103.83091409521965], {
         color: "red",
         fillColor: "#f03",
         fillOpacity: 0.25,
-        radius: 50, // 10 km in meters
+        radius: 250, // 10 km in meters
       }).addTo(map)
       circle.bindPopup("Childhood home")
+      
+      const polygonCoordinates1 = [
+      [1.416991, 103.830535], // Point 1
+      [1.416650, 103.831249], // Point 2
+      [1.416852, 103.831323], // Point 3
+      [1.417198, 103.830679], // Closing the shape (optional, Leaflet automatically closes polygons)
+    ];
+    const polygon1 = L.polygon(polygonCoordinates1, {
+      color: '#AF7C7B',       // Outline color
+      weight: 2,       // Outline thickness
+      fill: false,   // Fill color
+    }).addTo(map);
+    // end
 
-      // Add points in map
-      // var startMarker = L.marker(startLatLng).addTo(map).bindPopup("Start Point").openPopup();
-      // var endMarker = L.marker(endLatLng).addTo(map).bindPopup("End Point").openPopup();
+   // Location 2: add circle in YSS and a polygon
+      var circle = L.circle([1.4281, 103.8288], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.25,
+        radius: 250, // 10 km in meters
+      }).addTo(map)
+      circle.bindPopup("Secondary School")
+      
+      const polygonCoordinates2 = [
+      [1.427380, 103.829570], // Point 1
+      [1.428608, 103.829497], // Point 2
+      [1.428527, 103.828449], // Point 3
+      [1.427313, 103.828532], // Point 4
+    ];
+    const polygon2 = L.polygon(polygonCoordinates2, {
+      color: '#AF7C7B',       // Outline color
+      weight: 2,       // Outline thickness
+      fill: false,   // Fill color
+    }).addTo(map);
+      // End
+      
+      // Location 3: add circle in church and a polygon
+      var circle = L.circle([1.3149675340501847, 103.83673087931395], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.25,
+        radius: 250, // 10 km in meters
+      }).addTo(map)
+      circle.bindPopup("Church")
+      
+      const polygonCoordinates4 = [
+      [1.314653, 103.836562], // Point 1
+      [1.314730, 103.836478], // Point 2
+      [1.315060, 103.836784], // Point 3
+      [1.314931, 103.836896], // Point 4
+    ];
+    const polygon4 = L.polygon(polygonCoordinates4, {
+      color: '#AF7C7B',       // Outline color
+      weight: 2,       // Outline thickness
+      fill: false,   // Fill color
+    }).addTo(map);
+      // End
+      
+        // Location 4: add circle in Springleaf and a polygon
+      var circle = L.circle([1.3970409407722897, 103.81883921073315], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.25,
+        radius: 250, // 10 km in meters
+      }).addTo(map)
+      circle.bindPopup("Yummy Prata Place")
+      
+      const polygonCoordinates3 = [
+      [1.397029, 103.819009], // Point 1
+      [1.397126, 103.818968], // Point 2
+      [1.397072, 103.818739], // Point 3
+      [1.3969865899589178, 103.81876795827543], // Point 4
+    ];
+    const polygon3 = L.polygon(polygonCoordinates3, {
+      color: '#AF7C7B',       // Outline color
+      weight: 2,       // Outline thickness
+      fill: false,   // Fill color
+    }).addTo(map);
+      // End
+   
+     // Adding the markers for the GC Distance
       let smarker, emarker, route
       document
         .getElementById("gcdistance")
