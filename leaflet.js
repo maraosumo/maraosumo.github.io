@@ -224,22 +224,22 @@
             .on('ready', function() {
  var layer = kmlLayer.getLayers();
               
- layers.forEach(function(layer) {
- var props = layer.feature.properties;
- var storeName = props.name || "IKEA Store";
- var storeInfo = props.description || "No additional details.";
+        layers.forEach(function(layer) {
+            var props = layer.feature.properties;
+            var storeName = props.name || "IKEA Store";
+            var storeInfo = props.description || "No additional details.";
 
-// Bind popup with IKEA store name and description
-  layer.bindPopup(`<b>${storeName}</b><br>${storeInfo}`);
+            // Bind popup with IKEA store name and description
+            layer.bindPopup(`<b>${storeName}</b><br>${storeInfo}`);
 
-// Bind tooltip as a permanent label showing store name
-  layer.bindTooltip(storeName, { permanent: true, direction: "right" });
+            // Bind tooltip as a permanent label showing store name
+            layer.bindTooltip(storeName, { permanent: true, direction: "right" });
         });
 
-   map.fitBounds(kmlLayer.getBounds()); // Adjust the map to fit all IKEA locations
+        map.fitBounds(kmlLayer.getBounds()); // Adjust the map to fit all IKEA locations
     })
     .addTo(map);
- // layer.forEach(function(feature) {
+  // layer.forEach(function(feature) {
  //    var props = feature.feature.properties;
             
  //    // Bind popup with name or description from KML
