@@ -226,7 +226,18 @@
         
         layer.forEach(function(feature) {
             var props = feature.feature.properties;
-            
+          
+           var customIcon = L.icon({
+                iconUrl: 'Logo-ikea-icon-PNG.png' , // Replace with your own icon URL
+                iconSize: [32, 32], // Width, Height in pixels
+                iconAnchor: [16, 32], // Anchor point
+                popupAnchor: [0, -32] // Adjusts popup position
+            });
+
+            // Apply custom icon if it's a point
+            if (feature instanceof L.Marker) {
+                feature.setIcon(customIcon);
+            }
             // Bind popup with name or description from KML
             feature.bindPopup(props.name || "No Name");
             
