@@ -219,31 +219,43 @@
           great_circle(slat, slong, elat, elong)
         })
 
-// loading the kml file
+// loading the kml file for iKEAs
  var kmlLayer = omnivore.kml('iKEA_Singapore_LayerToKML.kml') // Replace with your file path
             .on('ready', function() {
- var layers = kmlLayer.getLayers();
-              
-          layers.forEach(function(feature) {
-                    ar props = feature.feature.properties;
-                    
-                    // Bind popup with IKEA store name and description (if available)
-                    feature.bindPopup(`<b>${props.name || 'IKEA Store'}</b><br>${props.description || 'No Description'}`);
+ var layer = kmlLayer.getLayers();
+        
+        layer.forEach(function(feature) {
+            var props = feature.feature.properties;
+            
+            // Bind popup with name or description from KML
+            feature.bindPopup(props.name || "No Name");
+            
+            // Bind tooltip (label) with name
+            feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+        });
 
-                    // Bind permanent tooltip with IKEA store name
-                    feature.bindTooltip(props.name || "Unnamed IKEA", { permanent: true, direction: "right" });
-                });
+        map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
+    })
+    .addTo(map);
 
-                // Adjust map to fit KML bounds
-                map.fitBounds(kmlLayer.getBounds());
-            })
-            .addTo(map);
-
+//KML for UT County
  var kmlLayer = omnivore.kml('Utah County Major_LayerToKML.kml') // Replace with your file path
             .on('ready', function() {
-                map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
-            })
-            .addTo(map);
+            var layer2 = kmlLayer.getLayers();
+        
+        layer2.forEach(function(feature) {
+            var props = feature.feature.properties;
+            
+            // Bind popup with name or description from KML
+            feature.bindPopup(props.name || "No Name");
+            
+            // Bind tooltip (label) with name
+            feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+        });
+
+        map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
+    })
+    .addTo(map);
   // layer.forEach(function(feature) {
  //    var props = feature.feature.properties;
             
