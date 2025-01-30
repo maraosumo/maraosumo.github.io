@@ -222,23 +222,28 @@
 // loading the kml file
  var kmlLayer = omnivore.kml('iKEA_Singapore_LayerToKML.kml') // Replace with your file path
             .on('ready', function() {
- var layer = kmlLayer.getLayers();
+ var layers = kmlLayer.getLayers();
               
-        layers.forEach(function(layer) {
-            var props = layer.feature.properties;
-            var storeName = props.name || "IKEA Store";
-            var storeInfo = props.description || "No additional details.";
+          layers.forEach(function(feature) {
+                    ar props = feature.feature.properties;
+                    
+                    // Bind popup with IKEA store name and description (if available)
+                    feature.bindPopup(`<b>${props.name || 'IKEA Store'}</b><br>${props.description || 'No Description'}`);
 
-            // Bind popup with IKEA store name and description
-            layer.bindPopup(`<b>${storeName}</b><br>${storeInfo}`);
+                    // Bind permanent tooltip with IKEA store name
+                    feature.bindTooltip(props.name || "Unnamed IKEA", { permanent: true, direction: "right" });
+                });
 
-            // Bind tooltip as a permanent label showing store name
-            layer.bindTooltip(storeName, { permanent: true, direction: "right" });
-        });
+                // Adjust map to fit KML bounds
+                map.fitBounds(kmlLayer.getBounds());
+            })
+            .addTo(map);
 
-        map.fitBounds(kmlLayer.getBounds()); // Adjust the map to fit all IKEA locations
-    })
-    .addTo(map);
+ var kmlLayer = omnivore.kml('Utah County Major_LayerToKML.kml') // Replace with your file path
+            .on('ready', function() {
+                map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
+            })
+            .addTo(map);
   // layer.forEach(function(feature) {
  //    var props = feature.feature.properties;
             
