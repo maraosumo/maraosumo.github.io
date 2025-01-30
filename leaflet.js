@@ -231,7 +231,7 @@
     feature.bindPopup(props.name || "iKEA Locations");
             
     // Bind tooltip (label) with name
-    feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+    feature.bindTooltip(props.name || "iKEA Locations!", { permanent: true, direction: "right" });
         });
                 map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
             })
