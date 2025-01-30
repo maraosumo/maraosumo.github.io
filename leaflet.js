@@ -238,22 +238,22 @@
     })
     .addTo(map);
 
-// KML for UT County
- // var kmlLayer = omnivore.kml('Utah County Major_LayerToKML.kml') // Replace with your file path
- //            .on('ready', function() {
- //            var layer2 = kmlLayer.getLayers();
+//KML for UT County
+ var kmlLayer = omnivore.kml('Utah County Major_LayerToKML.kml') // Replace with your file path
+            .on('ready', function() {
+            var layer2 = kmlLayer.getLayers();
         
- //        layer2.forEach(function(feature) {
- //            var props = feature.feature.properties;
+        layer2.forEach(function(feature) {
+            var props = feature.feature.properties;
             
- //            // Bind popup with name or description from KML
- //            feature.bindPopup(props.name || "No Name");
+            // Bind popup with name or description from KML
+            feature.bindPopup(props.name || "No Name");
             
- //            // Bind tooltip (label) with name
- //            feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
- //        });
+            // Bind tooltip (label) with name
+            feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+        });
 
- //    .addTo(map);
+    .addTo(map);
   // layer.forEach(function(feature) {
  //    var props = feature.feature.properties;
             
