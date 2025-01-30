@@ -218,3 +218,10 @@
           
           great_circle(slat, slong, elat, elong)
         })
+
+// loading the kml file
+ var kmlLayer = omnivore.kml('iKEA_Singapore_LayerToKML.kml') // Replace with your file path
+            .on('ready', function() {
+                map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
+            })
+            .addTo(map);
