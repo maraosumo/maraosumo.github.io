@@ -35,6 +35,28 @@
       <p id="results"></p>
     </div>
 
+    <h3>KML Code</h3>
+    <br>
+    <h4>
+     var kmlLayer = omnivore.kml('iKEA_Singapore_LayerToKML.kml') // Replace with your file path
+            .on('ready', function() {
+     var layer = kmlLayer.getLayers();
+        
+        layer.forEach(function(feature) {
+            var props = feature.feature.properties;
+            
+            // Bind popup with name or description from KML
+            feature.bindPopup(props.name || "No Name");
+            
+            // Bind tooltip (label) with name
+            feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+        });
+
+        map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
+    })
+    .addTo(map);
+    </h4>
+
     <script src = leaflet.js></script>
       
   </body>
