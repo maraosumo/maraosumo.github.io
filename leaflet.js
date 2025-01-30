@@ -252,7 +252,6 @@
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
         });
-
     .addTo(map);
   // layer.forEach(function(feature) {
  //    var props = feature.feature.properties;
