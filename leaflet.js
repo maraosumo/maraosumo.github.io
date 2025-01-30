@@ -239,7 +239,7 @@
 //KML for UT County
  var kmlLayer2 = omnivore.kml('Utah County Major_LayerToKML.kml') // Replace with your file path
             .on('ready', function() {
- var layer2 = kmlLayer.getLayers();
+ var layer2 = kmlLayer2.getLayers();
         
         layer2.forEach(function(feature) {
             var props2 = feature.feature.properties;
