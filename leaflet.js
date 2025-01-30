@@ -233,8 +233,6 @@
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
         });
-
-        map.fitBounds(kmlLayer.getBounds()); // Adjust map to fit KML layer
     })
     .addTo(map);
 
