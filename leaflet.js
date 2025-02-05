@@ -261,7 +261,7 @@
             // Bind tooltip (label) with name
             feature.bindTooltip(props2.name || "Unnamed", { permanent: true, direction: "right" });
         });
-        var kmlLayer1Added = L.layerGroup([kmllayer]);
+        var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
 
 // Layer Control (enables toggling of KML layers)
