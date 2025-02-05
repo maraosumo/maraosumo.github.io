@@ -245,7 +245,7 @@
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
         });
     })
-    .addTo(map);
+    // .addTo(map);
 
 //KML for UT County
  var kmlLayer2 = omnivore.kml('Utah County Major_LayerToKML.kml') // Replace with your file path
@@ -260,15 +260,16 @@
             
             // Bind tooltip (label) with name
             feature.bindTooltip(props2.name || "Unnamed", { permanent: true, direction: "right" });
-        });
-        var kmlLayer1Added = L.layerGroup([kmlLayer]);
+        }); })
+var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
+
 
 // Layer Control (enables toggling of KML layers)
 var overlays = {
     "Singapore's iKea": kmlLayer1Added,
     "UT Cities": kmlLayer2Added
-};})
+};
 
 L.control.layers(null, overlays).addTo(map);
       
