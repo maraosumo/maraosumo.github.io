@@ -261,5 +261,14 @@
             // Bind tooltip (label) with name
             feature.bindTooltip(props2.name || "Unnamed", { permanent: true, direction: "right" });
         });
-        })
-    .addTo(map);
+        var kmlLayer1Added = L.layerGroup([kmllayer]);
+var kmlLayer2Added = L.layerGroup([kmlLayer2]);
+
+// Layer Control (enables toggling of KML layers)
+var overlays = {
+    "Singapore's iKea": kmlLayer1Added,
+    "UT Cities": kmlLayer2Added
+};})
+
+L.control.layers(null, overlays).addTo(map);
+      
