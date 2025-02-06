@@ -47,3 +47,60 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.ribbon {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ribbon a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ribbon a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.footnote {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f9f9f9;
+  color: #777; /* Lighter color for a more subtle appearance */
+  padding: 5px 15px; /* Smaller padding for a less prominent look */
+  font-size: 12px; /* Smaller font size */
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footnote p {
+  margin: 0;
+}
+
+.footnote a {
+  text-decoration: none;
+  color: #555; /* Darker grey for the link, less attention-grabbing */
+  font-weight: normal; /* Normal weight to make the link less bold */
+  transition: color 0.3s ease;
+}
+
+.footnote a:hover {
+  color: #333; /* Slightly darker color on hover */
+}
