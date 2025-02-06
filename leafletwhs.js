@@ -27,3 +27,17 @@ const wmsLayer3 = L.tileLayer.wms('https://geoserver.hydroshare.org/geoserver/HS
 	format: 'image/png',
       attribution: 'Hydroshare GeoServer'
 	}).addTo(map);
+
+var wmsLayer1Added = L.layerGroup([wmsLayer1]);
+var wmsLayer2Added = L.layerGroup([wmsLayer2]);
+var wmsLayer3Added = L.layerGroup([wmsLayer3]);
+
+
+// Layer Control (enables toggling of KML layers)
+var overlays = {
+    "Utah Counties": wmsLayer1Added,
+    "UTA Routes": wmsLayer2Added,
+    "UTA Stops": wmsLayer3Added
+};
+
+L.control.layers(null, overlays).addTo(map);
