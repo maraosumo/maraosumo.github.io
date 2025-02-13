@@ -52,3 +52,17 @@ a:hover {
   background-color: #43bacc;
   color: white;
 }
+ a.button-link {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #0077be;
+   color: white;
+   text-decoration: none;
+   border-radius: 20px;
+   border: 2px solid white;
+   transition: background 0.3s;
+}
+
+a.button-link:hover {
+    background-color: #005f99;
+}
