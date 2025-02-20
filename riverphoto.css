@@ -117,3 +117,17 @@ h1 {
             opacity: 1;
             visibility: visible;
         }
+/* pop up for KML */
+ .popup-button {
+            position: absolute;
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+        #popup1 { top: 20px; left: 20px; }
+        #popup2 { top: 60px; left: 20px; }
+        #popup3 { top: 100px; left: 20px; }
