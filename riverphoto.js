@@ -34,44 +34,31 @@ layer2.forEach(function(feature) {
                   <div id="forecast-${reachID}"></div>`;
                   layer.bindPopup(popupContent);  // Bind popup with dynamic content 
                 });});});
-});
 
-function fetchForecast(event, reachID, linkElement) {
-  event.preventDefault();  // Prevents page reload on link click
-  var api_url = `https://apps.int.nws.noaa.gov/nwm/api/forecast?reach_id=${reachID}&product=short_range&variable=streamflow`;
+                  function fetchForecast(event, reachID, linkElement) {
+                  event.preventDefault();  // Prevents page reload on link click
+                  var api_url = `https://apps.int.nws.noaa.gov/nwm/api/forecast?reach_id=${reachID}&product=short_range&variable=streamflow`;
 
-  fetch(api_url)
-    .then(response => response.json())
-    .then(data => {
-      var forecast = data.forecast ? data.forecast[0].streamflow_cfs + " CFS" : "No data available";
-      document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Streamflow:</b> ${forecast}`;
-    })
-    .catch(error => {
-    console.error("Error fetching forecast:", error);
-    document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Error:</b> Could not retrieve data.`;
+                  fetch(api_url)
+                    .then(response => response.json())
+                    .then(data => {
+                      var forecast = data.forecast ? data.forecast[0].streamflow_cfs + " CFS" : "No data available";
+                      document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Streamflow:</b> ${forecast}`;
+                    })
+                    .catch(error => {
+                      console.error("Error fetching forecast:", error);
+                      document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Error:</b> Could not retrieve data.`;
                 });
         };
-
-
-            // Apply custom icon if it's a point
-            if (feature instanceof L.Marker) {
-                feature.setIcon(customIcon);
-            }
+                    // Apply custom icon if it's a point
+                    if (feature instanceof L.Marker) {
+                      feature.setIcon(customIcon);
+       }
             
-            // Bind tooltip (label) with name
-            feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+                    // Bind tooltip (label) with name
+                  feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
             });
 
-            // pop up "buttons"
-            function showPopup() {
-            var popup = L.popup()
-                .setLatLng(map.getCenter()) // Popup appears at the center of the map
-                .setContent("<b>Custom Popup</b><br>This popup is independent of KML data.")
-                .openOn(map);
-        }
-});
-
-  
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
 
