@@ -96,6 +96,22 @@ async function fetchForecast(event, reachId) {
             timestampCell.textContent = timestamps[i];
             flowCell.textContent = flowValues[i];
           }
+
+          var rank = (.9 * (flowValues.length + 1)) - 1;
+          var thresholdValue;
+          var sortedFlowValues = flowValues.toSorted(function(a, b){
+            return a - b;
+          });
+          if(Number.isInteger(rank)){
+            thresholdValue = flowValues[rank];
+          }
+          else{
+            var lower = sortedFlowValues[Math.floor(rank)];
+            var upper = sortedFlowValues[Math.ceil(rank)];
+            thresholdValue = lower + ((rank - Math.floor(rank)) * (upper - lower));
+          }
+          var thresholdArray = new Array(flowValues.length).fill(thresholdValue);
+
       
           // Update or create the chart
           const ctx = document.getElementById('streamflowChart').getContext('2d');
@@ -115,7 +131,14 @@ async function fetchForecast(event, reachId) {
                 borderColor: 'blue',
                 borderWidth: 1,
                 fill: false
-              }]
+              },
+              {label: '90th percentile (Dangerous)',
+                data: thresholdArray,
+                borderColor: 'red',
+                borderWidth: 1,
+                fill: false
+              }
+              ]
             },
             options: {
               responsive: true,
