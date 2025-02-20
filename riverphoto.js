@@ -33,8 +33,8 @@ layer2.forEach(function(feature) {
             
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
+            });
 });
-})
   
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
