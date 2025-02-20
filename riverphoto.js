@@ -33,6 +33,18 @@ layer2.forEach(function(feature) {
 
 });
 
+var kmlLayer1Added = L.layerGroup([kmlLayer]);
+var kmlLayer2Added = L.layerGroup([kmlLayer2]);
+
+
+// Layer Control (enables toggling of KML layers)
+var overlays = {
+    "Rivers and Streams in Idaho": kmlLayer1Added,
+    "Popular Rivers and Streams": kmlLayer2Added
+};
+
+L.control.layers(null, overlays).addTo(map);
+
 function closePopup() {
   document.getElementById('popup').classList.add('hidden');
 }
