@@ -1,4 +1,4 @@
-var map = L.map("map").setView([43.66218988063861, -116.6863364262967], 4) // zoom to snake river
+var map = L.map("map").setView([43.69231057041175, -116.494094509993], 3) // zoom to snake river
 
 // Add a tile layer (e.g., OpenStreetMap)
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { 
