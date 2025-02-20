@@ -21,7 +21,7 @@ var layer2 = kmlLayer2.getLayers();
     var popupContent = `<b>Reach ID:</b> ${reachID} <br>
     <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
     <div id="forecast-${reachID}"></div>`;
-    layer2.bindPopup(popupContent);  // Bind popup with dynamic content
+    layer.bindPopup(popupContent);  // Bind popup with dynamic content
   })
   
 layer2.forEach(function(feature) {
