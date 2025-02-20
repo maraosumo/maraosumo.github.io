@@ -8,11 +8,11 @@ var kmlLayer = omnivore.kml('Idaho Rivers_LayerToKML.kml') // Replace with your 
 .on('ready', function() {
 var layer = kmlLayer.getLayers();
   
-var kmlLayer = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
+var kmlLayer2 = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
-var layer = kmlLayer.getLayers();
+var layer2 = kmlLayer.getLayers();
   
-layer.forEach(function(feature) {
+layer2.forEach(function(feature) {
   var props = feature.feature.properties;  
   var customIcon = L.icon({
                 iconUrl: 'river-clipart-xl.png' , // Replace with your own icon URL
@@ -31,7 +31,7 @@ layer.forEach(function(feature) {
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
 
-}));
+});
 
 function closePopup() {
   document.getElementById('popup').classList.add('hidden');
