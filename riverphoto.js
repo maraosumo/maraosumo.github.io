@@ -24,21 +24,7 @@ var layer2 = kmlLayer2.getLayers();
     layer.bindPopup(popupContent);  // Bind popup with dynamic content
   });
 
-    function fetchForecast(event, reachID, linkElement) {
-        event.preventDefault();  // Prevents page reload on link click
-        var api_url = `https://apps.int.nws.noaa.gov/nwm/api/forecast?reach_id=${reachID}&product=short_range&variable=streamflow`;
     
-        fetch(api_url)
-          .then(response => response.json())
-          .then(data => {
-            var forecast = data.forecast ? data.forecast[0].streamflow_cfs + " CFS" : "No data available";
-            document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Streamflow:</b> ${forecast}`;
-          })
-          .catch(error => {
-            console.error("Error fetching forecast:", error);
-            document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Error:</b> Could not retrieve data.`;
-          });
-    };
   
 layer2.forEach(function(feature) {
   var props = feature.feature.properties;  
@@ -75,3 +61,18 @@ function closePopup() {
   document.getElementById('popup').classList.add('hidden');
   document.getElementById('map').style.visibility = 'visible';
 };
+function fetchForecast(event, reachID, linkElement) {
+        event.preventDefault();  // Prevents page reload on link click
+        var api_url = `https://apps.int.nws.noaa.gov/nwm/api/forecast?reach_id=${reachID}&product=short_range&variable=streamflow`;
+    
+        fetch(api_url)
+          .then(response => response.json())
+          .then(data => {
+            var forecast = data.forecast ? data.forecast[0].streamflow_cfs + " CFS" : "No data available";
+            document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Streamflow:</b> ${forecast}`;
+          })
+          .catch(error => {
+            console.error("Error fetching forecast:", error);
+            document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Error:</b> Could not retrieve data.`;
+          });
+    };
