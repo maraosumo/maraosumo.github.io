@@ -1,5 +1,6 @@
 #map {
             height: 500px;
+            visibility: hidden;
         }
 
 .popup-container {
