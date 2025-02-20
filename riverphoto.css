@@ -3,6 +3,15 @@
             visibility: hidden;
         }
 
+h1 {
+    font-family: Verdana, Calibri;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Ensures the background adjusts to the text width */
+}
+
 .popup-container {
             position: fixed;
             top: 0;
