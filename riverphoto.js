@@ -59,3 +59,31 @@ function closePopup() {
   document.getElementById('popup').classList.add('hidden');
   document.getElementById('map').style.visibility = 'visible';
 };
+
+// Event listener when a KML marker is clicked
+kmlLayer.on('ready', function() {
+// Loop through each feature in the KML
+kmlLayer.eachLayer(function(layer) {
+var reachID = layer.feature.properties.reach_ID;  // Assuming 'reach_id' is a property in KML
+  var popupContent = `<b>Reach ID:</b> ${reachID} <br>
+  <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
+  <div id="forecast-${reachID}"></div>`;
+  layer.bindPopup(popupContent);  // Bind popup with dynamic content
+});
+});
+
+function fetchForecast(event, reachID, linkElement) {
+  event.preventDefault();  // Prevents page reload on link click
+  var api_url = `https://apps.int.nws.noaa.gov/nwm/api/forecast?reach_id=${reachID}&product=short_range&variable=streamflow`;
+
+  fetch(api_url)
+    .then(response => response.json())
+    .then(data => {
+      var forecast = data.forecast ? data.forecast[0].streamflow_cfs + " CFS" : "No data available";
+      document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Streamflow:</b> ${forecast}`;
+    })
+    .catch(error => {
+    console.error("Error fetching forecast:", error);
+    document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Error:</b> Could not retrieve data.`;
+                });
+        };
