@@ -50,4 +50,5 @@ L.control.layers(null, overlays).addTo(map);
 
 function closePopup() {
   document.getElementById('popup').classList.add('hidden');
+  document.getElementById('map').style.visibility = 'visible';
 };
