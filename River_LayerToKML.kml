@@ -12,7 +12,7 @@
     <Placemark id="ID_00000">
       <name>Payette River</name>
        <ExtendedData>
-        <Data name="Reach_ID"><value>13251000</value></Data>
+        <Data name="Reach_ID"><value>24166276</value></Data>
     </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
@@ -61,7 +61,7 @@
 
 <td>Reach_ID</td>
 
-<td>13251000</td>
+<td>24166276</td>
 
 </tr>
 

@@ -10,6 +10,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/togeojson"></script>
   <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <body>
 <h1> Click on the location dots to find out how the river will look like in the next couple of days! </h1>
@@ -34,7 +35,21 @@
 <button id="popup3" class="popup-button" onclick="showPopup(37.440, -122.100, 'Popup 3', 'This is the third popup!')">Popup 3</button>  -->
 
 </body>
-  <div id="map"></div>
+<div id="map"></div>
+
+<div id="forecast-container">
+  <table id="timeseries-datatable">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Flow value</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <canvas id="streamflowChart"></canvas>
+</div>
 
 <script src = riverphoto.js></script>
 </html>
