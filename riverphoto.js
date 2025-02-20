@@ -63,7 +63,7 @@ function closePopup() {
 };
 function fetchForecast(event, reachID, linkElement) {
         event.preventDefault();  // Prevents page reload on link click
-        var api_url = `https://apps.int.nws.noaa.gov/nwm/api/forecast?reach_id=${reachID}&product=short_range&variable=streamflow`;
+        var api_url = `https://api.water.noaa.gov/nwps/v1/reaches/${reachID}/streamflow?series=short_range`;
     
         fetch(api_url)
           .then(response => response.json())
