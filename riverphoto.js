@@ -22,7 +22,7 @@ var layer2 = kmlLayer2.getLayers();
     <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
     <div id="forecast-${reachID}"></div>`;
     layer2.bindPopup(popupContent);  // Bind popup with dynamic content
-  )}
+  })
   
 layer2.forEach(function(feature) {
   var props = feature.feature.properties;  
