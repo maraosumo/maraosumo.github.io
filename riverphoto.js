@@ -7,10 +7,13 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var kmlLayer = omnivore.kml('Idaho Rivers_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
 var layer = kmlLayer.getLayers();
+  
 var kmlLayer = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
 var layer = kmlLayer.getLayers();
-   
+  
+layer.forEach(function(feature) {
+  var props = feature.feature.properties;  
   var customIcon = L.icon({
                 iconUrl: 'river-clipart-xl.png' , // Replace with your own icon URL
                 iconSize: [32, 32], // Width, Height in pixels
@@ -27,9 +30,6 @@ var layer = kmlLayer.getLayers();
             
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
-        
-layer.forEach(function(feature) {
-  var props = feature.feature.properties;
 
 }));
 
