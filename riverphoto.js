@@ -28,7 +28,7 @@ layer2.forEach(function(feature) {
                 kmlLayer.on('ready', function() {
             // Loop through each feature in the KML
                 kmlLayer.eachLayer(function(layer) {
-                  var reachID = layer.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
+                  var reachID = layer2.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
                   var popupContent = `<b>Reach ID:</b> ${reachID} <br>
                   <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
                   <div id="forecast-${reachID}"></div>`;
