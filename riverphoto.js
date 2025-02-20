@@ -61,6 +61,8 @@ function closePopup() {
   document.getElementById('popup').classList.add('hidden');
   document.getElementById('map').style.visibility = 'visible';
 };
+
+
 function fetchForecast(event, reachID, linkElement) {
         event.preventDefault();  // Prevents page reload on link click
         var api_url = `https://api.water.noaa.gov/nwps/v1/reaches/${reachID}/streamflow?series=short_range`;
