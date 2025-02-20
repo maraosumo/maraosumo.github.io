@@ -13,7 +13,16 @@ var layer = kmlLayer.getLayers();
   
 var kmlLayer2 = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
+
 var layer2 = kmlLayer2.getLayers();
+// Loop through each feature in the KML
+  kmlLayer2.eachLayer(function(layer) {
+    var reachID = layer.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
+    var popupContent = `<b>Reach ID:</b> ${reachID} <br>
+    <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
+    <div id="forecast-${reachID}"></div>`;
+    layer2.bindPopup(popupContent);  // Bind popup with dynamic content
+  }
   
 layer2.forEach(function(feature) {
   var props = feature.feature.properties;  
@@ -26,17 +35,10 @@ layer2.forEach(function(feature) {
 
             // Event listener when a KML marker is clicked
                 kmlLayer2.on('ready', function() {
-            // Loop through each feature in the KML
-                kmlLayer2.eachLayer(function(layer2) {
-                  var reachID = layer2.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
-                  var popupContent = `<b>Reach ID:</b> ${reachID} <br>
-                  <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
-                  <div id="forecast-${reachID}"></div>`;
-                  layer2.bindPopup(popupContent);  // Bind popup with dynamic content 
                   // Apply custom icon if it's a point
                   if (feature instanceof L.Marker) {
                     feature.setIcon(customIcon);
-       }
+                   }
                   // Bind tooltip (label) with name
                   feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
 
