@@ -28,8 +28,10 @@ layer2.forEach(function(feature) {
             if (feature instanceof L.Marker) {
                 feature.setIcon(customIcon);
             }
-            // Bind popup with name or description from KML
-            feature.bindPopup(props.name || "No Name");
+             omnivore.kml('points.kml')
+            .on('layeradd', function(e) {
+                e.layer.bindPopup(e.layer.feature.properties.description || "No Data");
+            })
             
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
