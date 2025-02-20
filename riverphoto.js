@@ -33,7 +33,12 @@ layer2.forEach(function(feature) {
                   <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
                   <div id="forecast-${reachID}"></div>`;
                   layer.bindPopup(popupContent);  // Bind popup with dynamic content 
-                });});});
+                  // Apply custom icon if it's a point
+                  if (feature instanceof L.Marker) {
+                    feature.setIcon(customIcon);
+       }
+                  // Bind tooltip (label) with name
+                  feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
 
                   function fetchForecast(event, reachID, linkElement) {
                   event.preventDefault();  // Prevents page reload on link click
@@ -49,15 +54,8 @@ layer2.forEach(function(feature) {
                       console.error("Error fetching forecast:", error);
                       document.getElementById(`forecast-${reachID}`).innerHTML = `<b>Error:</b> Could not retrieve data.`;
                 });
-        };
-                    // Apply custom icon if it's a point
-                    if (feature instanceof L.Marker) {
-                      feature.setIcon(customIcon);
-       }
-            
-                    // Bind tooltip (label) with name
-                  feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
-            });
+        };            });
+                });});});
 
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
