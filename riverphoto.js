@@ -27,7 +27,7 @@ layer2.forEach(function(feature) {
             // Event listener when a KML marker is clicked
                 kmlLayer.on('ready', function() {
             // Loop through each feature in the KML
-                kmlLayer.eachLayer(function(layer) {
+                kmlLayer.eachLayer(function(layer2) {
                   var reachID = layer2.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
                   var popupContent = `<b>Reach ID:</b> ${reachID} <br>
                   <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
