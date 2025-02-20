@@ -25,14 +25,14 @@ layer2.forEach(function(feature) {
             });
 
             // Event listener when a KML marker is clicked
-                kmlLayer.on('ready', function() {
+                kmlLayer2.on('ready', function() {
             // Loop through each feature in the KML
-                kmlLayer.eachLayer(function(layer2) {
+                kmlLayer2.eachLayer(function(layer2) {
                   var reachID = layer2.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
                   var popupContent = `<b>Reach ID:</b> ${reachID} <br>
                   <a href="#" onclick="fetchForecast(event, '${reachID}', this)">Get Forecast</a>
                   <div id="forecast-${reachID}"></div>`;
-                  layer.bindPopup(popupContent);  // Bind popup with dynamic content 
+                  layer2.bindPopup(popupContent);  // Bind popup with dynamic content 
                   // Apply custom icon if it's a point
                   if (feature instanceof L.Marker) {
                     feature.setIcon(customIcon);
