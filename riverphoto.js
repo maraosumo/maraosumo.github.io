@@ -28,15 +28,20 @@ layer2.forEach(function(feature) {
             if (feature instanceof L.Marker) {
                 feature.setIcon(customIcon);
             }
-             omnivore.kml('points.kml')
-            .on('layeradd', function(e) {
-                e.layer.bindPopup(e.layer.feature.properties.description || "No Data");
-            })
             
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
             });
+
+            // pop up "buttons"
+            function showPopup() {
+            var popup = L.popup()
+                .setLatLng(map.getCenter()) // Popup appears at the center of the map
+                .setContent("<b>Custom Popup</b><br>This popup is independent of KML data.")
+                .openOn(map);
+        }
 });
+
   
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
