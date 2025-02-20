@@ -54,6 +54,14 @@
 
 </tr>
 
+<tr>
+
+<td>Reach_ID</td>
+
+<td>13251000</td>
+
+</tr>
+
 </table>
 
 </td>
@@ -120,6 +128,14 @@
 <td>Name</td>
 
 <td>Boise River</td>
+
+</tr>
+
+<tr>
+
+<td>Reach_ID</td>
+
+<td>13206000</td>
 
 </tr>
 
@@ -192,6 +208,14 @@
 
 </tr>
 
+<tr>
+
+<td>Reach_ID</td>
+
+<td>&lt;Null&gt;</td>
+
+</tr>
+
 </table>
 
 </td>
@@ -220,7 +244,7 @@
   <Style id="IconStyle00">
     <IconStyle>
       <scale>1.000000</scale>
-      <Icon><href>Layer0_Symbol_d49b2030_0.png</href></Icon>
+      <Icon><href>Layer0_Symbol_b71cacf0_0.png</href></Icon>
     </IconStyle>
     <LabelStyle>
       <color>00000000</color>
