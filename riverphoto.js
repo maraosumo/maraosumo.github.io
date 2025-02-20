@@ -7,6 +7,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var kmlLayer = omnivore.kml('Idaho Rivers_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
 var layer = kmlLayer.getLayers();
+});
   
 var kmlLayer2 = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
@@ -30,9 +31,9 @@ layer2.forEach(function(feature) {
             
             // Bind tooltip (label) with name
             feature.bindTooltip(props.name || "Unnamed", { permanent: true, direction: "right" });
-
 });
-
+})
+  
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
 
@@ -47,4 +48,4 @@ L.control.layers(null, overlays).addTo(map);
 
 function closePopup() {
   document.getElementById('popup').classList.add('hidden');
-}
+};
