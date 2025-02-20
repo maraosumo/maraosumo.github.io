@@ -13,7 +13,7 @@ var layer = kmlLayer.getLayers();
   
 var kmlLayer2 = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
-var layer2 = kmlLayer.getLayers();
+var layer2 = kmlLayer2.getLayers();
   
 layer2.forEach(function(feature) {
   var props = feature.feature.properties;  
