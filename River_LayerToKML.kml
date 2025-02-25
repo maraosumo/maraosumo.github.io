@@ -11,6 +11,9 @@
     <description><![CDATA[]]></description>
     <Placemark id="ID_00000">
       <name>Payette River</name>
+      <ExtendedData>
+        <Data name="reach_id"><value>13251000</value></Data>
+      </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -88,6 +91,9 @@
     </Placemark>
     <Placemark id="ID_00001">
       <name>Boise River</name>
+      <ExtendedData>
+        <Data name="reach_id"><value>13206000</value></Data>
+      </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -165,6 +171,9 @@
     </Placemark>
     <Placemark id="ID_00002">
       <name>Snake River</name>
+      <ExtendedData>
+        <Data name="reach_id"><value>23300546</value></Data>
+      </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -242,6 +251,9 @@
     </Placemark>
     <Placemark id="ID_00003">
       <name>Cascade Reservoir</name>
+      <ExtendedData>
+        <Data name="reach_id"><value>13245000</value></Data>
+      </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -319,6 +331,9 @@
     </Placemark>
     <Placemark id="ID_00004">
       <name>Anderson Ranch Reservoir</name>
+      <ExtendedData>
+        <Data name="reach_id"><value>23386380</value></Data>
+      </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
