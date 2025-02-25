@@ -22,7 +22,7 @@ var kmlLayer2 = omnivore.kml('River_LayerToKML.kml') // Replace with your file p
 var layer2 = kmlLayer2.getLayers();
 // Loop through each feature in the KML
   kmlLayer2.eachLayer(function(layer) {
-    var reachID = layer.feature.properties.Reach_ID;  // Assuming 'reach_id' is a property in KML
+    var reachID = layer.feature.properties.reach_id;  // Assuming 'reach_id' is a property in KML
     var popupContent = `<b>Reach ID:</b> ${reachID} <br>
     <a href="#" onclick="fetchForecast(event, '${reachID}')">Get Forecast</a>
     <div id="forecast-${reachID}"></div>`;
