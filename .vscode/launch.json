@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open riverphoto.html",
+            "runtimeArgs": [
+                "--disable-web-security"
+             ],
+            "file": "c:\\Users\\daphn\\OneDrive - Brigham Young University\\Semesters\\Winter 2025\\CE514\\514 Website\\maraosumo.github.io\\riverphoto.html"
+        }
+    ]
+}

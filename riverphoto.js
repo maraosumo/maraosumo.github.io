@@ -10,7 +10,12 @@ var kmlLayer = omnivore.kml('Idaho Rivers_LayerToKML.kml') // Replace with your 
 .on('ready', function() {
 var layer = kmlLayer.getLayers();
 });
-  
+
+var kmlLayer3 = omnivore.kml('Idaho.kml') // Replace with your file path
+.on('ready', function() {
+var layer = kmlLayer3.getLayers();
+});
+
 var kmlLayer2 = omnivore.kml('River_LayerToKML.kml') // Replace with your file path
 .on('ready', function() {
 
@@ -47,12 +52,14 @@ layer2.forEach(function(feature) {
 
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
+var kmlLayer3Added = L.layerGroup([kmlLayer3]);
 
 
 // Layer Control (enables toggling of KML layers)
 var overlays = {
     "Rivers and Streams in Idaho": kmlLayer1Added,
-    "Popular Rivers and Streams": kmlLayer2Added
+    "Popular Rivers and Streams": kmlLayer2Added,
+    "Idaho State Boundary": kmlLayer3Added
 };
 
 L.control.layers(null, overlays).addTo(map);
