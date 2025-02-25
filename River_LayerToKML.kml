@@ -11,9 +11,6 @@
     <description><![CDATA[]]></description>
     <Placemark id="ID_00000">
       <name>Payette River</name>
-       <ExtendedData>
-        <Data name="Reach_ID"><value>24166276</value></Data>
-    </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -61,7 +58,7 @@
 
 <td>Reach_ID</td>
 
-<td>24166276</td>
+<td>13251000</td>
 
 </tr>
 
@@ -91,9 +88,6 @@
     </Placemark>
     <Placemark id="ID_00001">
       <name>Boise River</name>
-      <ExtendedData>
-        <Data name="Reach_ID"><value>23399371</value></Data>
-    </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -141,7 +135,7 @@
 
 <td>Reach_ID</td>
 
-<td>23399371</td>
+<td>13206000</td>
 
 </tr>
 
@@ -171,9 +165,6 @@
     </Placemark>
     <Placemark id="ID_00002">
       <name>Snake River</name>
-      <ExtendedData>
-        <Data name="Reach_ID"><value>24228281</value></Data>
-    </ExtendedData>
       <snippet></snippet>
       <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 
@@ -221,7 +212,7 @@
 
 <td>Reach_ID</td>
 
-<td>&lt;Null&gt;</td>
+<td>23300546</td>
 
 </tr>
 
@@ -249,11 +240,165 @@
         <coordinates> -116.7809496889999,43.49311306105808,0</coordinates>
       </Point>
     </Placemark>
+    <Placemark id="ID_00003">
+      <name>Cascade Reservoir</name>
+      <snippet></snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>5</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>SHAPE</td>
+
+<td>Point</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Name</td>
+
+<td>Cascade Reservoir</td>
+
+</tr>
+
+<tr>
+
+<td>Reach_ID</td>
+
+<td>13245000</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body><script type="text/javascript">
+
+				function changeImage(attElement, nameElement) {
+
+				document.getElementById('imageAttachment').src = attElement;
+
+				document.getElementById('imageName').innerHTML = nameElement;}
+
+			</script></html>
+
+]]></description>
+      <Point>
+        <extrude>0</extrude><altitudeMode>clampToGround</altitudeMode>
+        <coordinates> -116.096731171,44.59015312905687,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00004">
+      <name>Anderson Ranch Reservoir</name>
+      <snippet></snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+
+<head>
+
+<META http-equiv="Content-Type" content="text/html">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+
+<td>6</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+
+<tr>
+
+<td>SHAPE</td>
+
+<td>Point</td>
+
+</tr>
+
+<tr bgcolor="#D4E4F3">
+
+<td>Name</td>
+
+<td>Anderson Ranch Reservoir</td>
+
+</tr>
+
+<tr>
+
+<td>Reach_ID</td>
+
+<td>23386380</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</body><script type="text/javascript">
+
+				function changeImage(attElement, nameElement) {
+
+				document.getElementById('imageAttachment').src = attElement;
+
+				document.getElementById('imageName').innerHTML = nameElement;}
+
+			</script></html>
+
+]]></description>
+      <Point>
+        <extrude>0</extrude><altitudeMode>clampToGround</altitudeMode>
+        <coordinates> -115.3842043339999,43.39566886305823,0</coordinates>
+      </Point>
+    </Placemark>
   </Folder>
   <Style id="IconStyle00">
     <IconStyle>
       <scale>1.000000</scale>
-      <Icon><href>Layer0_Symbol_b71cacf0_0.png</href></Icon>
+      <Icon><href>Layer0_Symbol_6e6e66b0_0.png</href></Icon>
     </IconStyle>
     <LabelStyle>
       <color>00000000</color>
