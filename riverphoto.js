@@ -48,10 +48,10 @@ layer2.forEach(function(feature) {
                    }
                               
   });
-});
+})
+.addTo(map);
 
 var kmlLayer1Added = L.layerGroup([kmlLayer]);
-var kmlLayer2Added = L.layerGroup([kmlLayer2]);
 var kmlLayer3Added = L.layerGroup([kmlLayer3]);
 
 function closePopup() {
@@ -264,7 +264,6 @@ var wmsLayer2Added = L.layerGroup([wmsLayer2]);
 // Layers object
 var overlays = { 
   "Rivers and Streams in Idaho": kmlLayer1Added,
-  "Popular Rivers and Streams": kmlLayer2Added,
   "Idaho State Boundary": kmlLayer3Added,
   "Idaho Roads": wmsLayer1Added,
   "Lakes that meet quality standards (less/no pollution)": wmsLayer2Added,};
