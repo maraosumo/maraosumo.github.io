@@ -88,15 +88,43 @@ async function fetchForecast(event, reachId) {
               throw new Error("No forecast data available for this Reach ID.");
           }
       
-          const streamflowData = json_data.shortRange.series.data;
-          const timestamps = streamflowData.map(item => item.validTime);
-          const flowValues = streamflowData.map(item => item.flow);
-      
+          const shortStreamflowData = json_data.shortRange.series.data;
+          const timestamps = shortStreamflowData.map(item => item.validTime);
+          const flowValues = shortStreamflowData.map(item => item.flow);
+          
+          //Medium Range
+            const mediumApiUrl = `https://api.water.noaa.gov/nwps/v1/reaches/${reachId}/streamflow?series=medium_range`;
+            const mediumResponse = await fetch(mediumApiUrl);
+            if (!mediumResponse.ok) {
+              throw new Error(`HTTP error status: ${mediumResponse.status} - ${mediumResponse.statusText}`);
+            }
+        
+            const medium_json_data = await mediumResponse.json();
+        
+            if (!medium_json_data.mediumRange || !medium_json_data.mediumRange.mean || !medium_json_data.mediumRange.mean.data || medium_json_data.mediumRange.mean.data.length === 0) {
+                throw new Error("No forecast data available for this Reach ID.");
+            }
+            const mediumStreamflowData = medium_json_data.mediumRange.mean.data;
+          
+          //long range
+            const longApiUrl = `https://api.water.noaa.gov/nwps/v1/reaches/${reachId}/streamflow?series=long_range`;
+            const longResponse = await fetch(longApiUrl);
+            if (!longResponse.ok) {
+              throw new Error(`HTTP error status: ${longResponse.status} - ${longResponse.statusText}`);
+            }
+        
+            const long_json_data = await longResponse.json();
+        
+            if (!long_json_data.longRange || !long_json_data.longRange.mean || !long_json_data.longRange.mean.data || long_json_data.longRange.mean.data.length === 0) {
+                throw new Error("No forecast data available for this Reach ID.");
+            }
+            const longStreamflowData = long_json_data.longRange.mean.data;
+
           // Update the table
           const table = document.getElementById('timeseries-datatable').getElementsByTagName('tbody')[0];
           table.innerHTML = "";
       
-          for (let i = 0; i < streamflowData.length; i++) {
+          for (let i = 0; i < shortStreamflowData.length; i++) {
             const row = table.insertRow();
             const timestampCell = row.insertCell();
             const flowCell = row.insertCell();
@@ -118,7 +146,34 @@ async function fetchForecast(event, reachId) {
             thresholdValue = lower + ((rank - Math.floor(rank)) * (upper - lower));
           }
           var thresholdArray = new Array(flowValues.length).fill(thresholdValue);
+          
+          var lowerThreshold;
+          var upperThreshold;
+          switch (reachId) {
+            case 1827842:
+              lowerThreshold = 930.58;
+              upperThreshold = 3063.23;
+              break;
+            case 5275740:
+              lowerThreshold = 155.71;
+              upperThreshold = 771.71;
+              break;
+            case 9660602:
+              lowerThreshold = 723.64;
+              upperThreshold = 2118.92;
+              break;
+            case 19180610:
+              lowerThreshold = 952.42;
+              upperThreshold = 3259.46;
+              break
+            case 24166358:
+              lowerThreshold = 517.06
+              upperThreshold = 1388.32
+              break;
+          }
 
+          var lowerThresholdArray = new Array(flowValues.length).fill(lowerThreshold);
+          var upperThresholdArray = new Array(flowValues.length).fill(upperThreshold);
       
           // Update or create the chart
           const ctx = document.getElementById('streamflowChart').getContext('2d');
@@ -139,8 +194,26 @@ async function fetchForecast(event, reachId) {
                 borderWidth: 1,
                 fill: false
               },
-              {label: '90th percentile (Dangerous)',
+              {label: 'Streamflow Forecast (Medium Range)',
                 data: thresholdArray,
+                borderColor: 'black',
+                borderWidth: 1,
+                fill: false
+              },
+              {label: 'Streamflow Forecast (Long Range)',
+                data: thresholdArray,
+                borderColor: 'grey',
+                borderWidth: 1,
+                fill: false
+              },
+              {label: 'Flood Warning',
+                data: upperThresholdArray,
+                borderColor: 'red',
+                borderWidth: 1,
+                fill: false
+              },
+              {label: 'No water',
+                data: lowerThresholdArray,
                 borderColor: 'red',
                 borderWidth: 1,
                 fill: false
