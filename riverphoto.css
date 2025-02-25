@@ -199,3 +199,11 @@ body {
         #popup1 { top: 20px; left: 20px; }
         #popup2 { top: 60px; left: 20px; }
         #popup3 { top: 100px; left: 20px; }
+
+.leaflet-control-layers {
+    max-height: 300px;
+    overflow-y: auto;
+    }
+.leaflet-control-layers-expanded {
+    display: block !important;
+    }

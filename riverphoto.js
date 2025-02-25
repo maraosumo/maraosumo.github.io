@@ -54,16 +54,6 @@ var kmlLayer1Added = L.layerGroup([kmlLayer]);
 var kmlLayer2Added = L.layerGroup([kmlLayer2]);
 var kmlLayer3Added = L.layerGroup([kmlLayer3]);
 
-
-// Layer Control (enables toggling of KML layers)
-var overlays = {
-    "Rivers and Streams in Idaho": kmlLayer1Added,
-    "Popular Rivers and Streams": kmlLayer2Added,
-    "Idaho State Boundary": kmlLayer3Added
-};
-
-L.control.layers(null, overlays).addTo(map);
-
 function closePopup() {
   document.getElementById('popup').classList.add('hidden');
   document.getElementById('map').style.visibility = 'visible';
@@ -254,3 +244,29 @@ async function fetchForecast(event, reachId) {
         }
       
     };
+
+//adding hydroshare
+const wmsLayer1 = L.tileLayer.wms('https://geoserver.hydroshare.org/geoserver/HS-efecdcd09f0d458b91f90ecd18c6df56/wms', {
+  layers: 'HS-efecdcd09f0d458b91f90ecd18c6df56:All_Idaho_Road',
+transparent: 'true',
+format: 'image/png',
+  attribution: 'Hydroshare GeoServer'})
+
+const wmsLayer2 = L.tileLayer.wms('https://geoserver.hydroshare.org/geoserver/HS-efecdcd09f0d458b91f90ecd18c6df56/wms', {
+    layers: 'HS-efecdcd09f0d458b91f90ecd18c6df56:ID305B_2010_LAKES',
+transparent: 'true',
+format: 'image/png',
+    attribution: 'Hydroshare GeoServer'})
+
+var wmsLayer1Added = L.layerGroup([wmsLayer1]);
+var wmsLayer2Added = L.layerGroup([wmsLayer2]);
+  
+// Layers object
+var overlays = { 
+  "Rivers and Streams in Idaho": kmlLayer1Added,
+  "Popular Rivers and Streams": kmlLayer2Added,
+  "Idaho State Boundary": kmlLayer3Added,
+  "Idaho Roads": wmsLayer1Added,
+  "Lakes that meet quality standards (less/no pollution)": wmsLayer2Added,};
+
+L.control.layers(null, overlays, { collapsed: false }).addTo(map);

@@ -1,0 +1,84 @@
+<head>
+    <link rel="stylesheet" href="nwmmodel.css">
+  </head>
+  <h1>How It Works</h1>
+  <h4><a href="https://maraosumo.github.io/riverphoto.html" class ="button-link">Back to homepage</a></h4>
+  <h3><a href="https://maraosumo.github.io/riverwarnings.html" target="_blank">First, a warning.</a></h3>
+  <h3><p>The website is to aid photographers, families, or individuals who are looking to visit some rivers around Boise, Idaho.
+    <br>When clicking on the reach IDs of the rivers, the projected streamflow is shown. <br>
+    <br>The site also has Idaho roads, other rivers and streamlines, Idaho state boundary and 
+    <br>lakes who are reported to reach good water quality, for user's pleasure.</p></h3>
+  <h3>The following will be describing more in depth on how this website was created. </h3>
+  <hr>  
+  <body>
+    <p>This web application uses multiple sources for its datasets, including KML and HydroShare data. The National Water Model (NWM) API was also used to view the various rivers stream flow for short, medium and long frame. The treshold for the 100 year period, and the 2 year period values for all individual river reach ID's were hardcoded into the data.</p>
+    <br>
+    <p>This is the following code that was used for each datasets:</p>
+    <p>KML:</p>
+    <code>
+        var kmlLayer = omnivore.kml('Idaho Rivers_LayerToKML.kml') // Replace with your file path
+        .on('ready', function() {
+            var layer = kmlLayer.getLayers();
+        });
+
+        var layer2 = kmlLayer2.getLayers();
+
+        // Loop through each feature in the KML
+        kmlLayer2.eachLayer(function(layer) {
+            var reachID = layer.feature.properties.reach_id;  // Assuming 'reach_id' is a property in KML
+            var popupContent = `<b>Reach ID:</b> ${reachID} <br>
+            <!-- <a href="#" onclick="fetchForecast(event, '${reachID}')">Get Forecast</a> --> 
+            <!-- <div id="forecast-${reachID}"></div>`; -->
+            layer.bindPopup(popupContent);  // Bind popup with dynamic content
+        });
+
+    </code>
+    <p>HydroShare:</p>
+    <code>
+        const wmsLayer1 = L.tileLayer.wms('https://geoserver.hydroshare.org/geoserver/HS-efecdcd09f0d458b91f90ecd18c6df56/wms', {
+            layers: 'HS-efecdcd09f0d458b91f90ecd18c6df56:All_Idaho_Road',
+            transparent: 'true',
+            format: 'image/png',
+            attribution: 'Hydroshare GeoServer'})
+    </code>
+    <p>NWM API:</p>
+    <code>
+        try {
+            const apiUrl = `https://api.water.noaa.gov/nwps/v1/reaches/${reachId}/streamflow?series=short_range`;
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error status: ${response.status} - ${response.statusText}`);
+            }
+        
+            const json_data = await response.json();
+        
+            if (!json_data.shortRange || !json_data.shortRange.series || !json_data.shortRange.series.data || json_data.shortRange.series.data.length === 0) {
+                throw new Error("No forecast data available for this Reach ID.");
+            }
+        switch (reachId) {
+            case 1827842:
+                lowerThreshold = 930.58;
+                upperThreshold = 3063.23;
+                break;
+            case 5275740:
+                lowerThreshold = 155.71;
+                upperThreshold = 771.71;
+                break;
+            case 9660602:
+                lowerThreshold = 723.64;
+                upperThreshold = 2118.92;
+                break;
+            case 19180610:
+                lowerThreshold = 952.42;
+                upperThreshold = 3259.46;
+                break
+            case 24166358:
+                lowerThreshold = 517.06
+                upperThreshold = 1388.32
+                break;
+              }
+    </code> 
+
+</body>
+<br><br>
+<a href="https://maraosumo.github.io/howitactuallyworks.html" class="button-link">Still Confused?</a>

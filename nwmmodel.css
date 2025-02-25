@@ -1,5 +1,16 @@
+h1 {
+  font-family: Verdana, Calibri;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Ensures the background adjusts to the text width */
+}
+h2,h3,h4 {
+   font-family: Verdana, Calibri;
+  color: #333;
+}
 body {
-    background: linear-gradient(to bottom, #0077be, #00aaff);
+    background: linear-gradient(to bottom, #0077be, #D6EAF8);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -45,10 +56,6 @@ a:hover {
 }
 
 .ribbon a:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-.ribbon a:hover {
   background-color: #43bacc;
   color: white;
 }
@@ -65,4 +72,29 @@ a:hover {
 
 a.button-link:hover {
     background-color: #005f99;
+}
+a {
+  color: #fd5c63;
+  display: inline-block;
+  background-color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+code {
+  font-family: "Verdana", monospace;
+  background-color: #6582AA;
+  padding: 4px;
+  border-radius: 4px;
+  white-space: pre-line;
+  display: block;
+
+}
+
+hr {
+  border: 2px solid black; /* Solid black line */
+  width: 100%; /* Full width */
 }
